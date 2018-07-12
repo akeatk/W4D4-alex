@@ -1,0 +1,30 @@
+<% 
+  if action = :new
+    method_txt = 'post'
+    path_txt = users_url
+  elsif action = :login
+    method_txt = 'post'
+    path_txt = session_url
+  end
+ %>
+
+<form action='<%= path_txt %>' method="post">
+  <input type='hidden' name='_method' value=' <%= method_txt %> '>
+  <input type='hidden' name='authenticity_token' value=' <%= form_authenticity_token %> '>
+  
+  <label for="email">
+    Email
+    <input type="text" name="user[email]" >
+  </label>
+  
+  <br>
+  
+  <label for="password">
+    Password
+    <input type="text" name="user[password]" >
+  </label>
+  
+  <br>
+  
+  <input type='submit' value='Submit'>
+</form>

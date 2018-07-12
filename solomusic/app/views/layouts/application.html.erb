@@ -1,0 +1,50 @@
+<style>
+  header h1 {
+    font-family: arial;
+    color: red;
+    font-size: 50px;
+  }
+  a {
+    font: 11px Arial;
+    text-decoration: none;
+    background-color: #EEEEEE;
+    color: #333333;
+    padding: 2px 6px 2px 6px;
+    border-top: 1px solid gray;
+    border-right: 1px solid gray;
+    border-bottom: 1px solid gray;
+    border-left: 1px solid gray;
+    border-radius: 4px;
+  }
+  
+</style>
+
+<!DOCTYPE html>
+<html>
+  <head>
+    <title>Solomusic</title>
+    <%= csrf_meta_tags %>
+
+    <%= stylesheet_link_tag    'application', media: 'all', 'data-turbolinks-track': 'reload' %>
+    <%= javascript_include_tag 'application', 'data-turbolinks-track': 'reload' %>
+    
+  </head>
+
+  <body>
+    <header>
+      <h1>MUSIC APP</h1>
+      
+      <% if logged_in? %>
+        <a href=" <%= users_url %> ">Take me Home</a>
+        
+        <form action=" <%= session_url %> " method="post">
+          Logged in as: <%= current_user.email %>
+          <input type="hidden" name='_method' value='delete'>
+          <input type="hidden" name="authenticity_token" value="form_authenticity_token">
+          <input type="submit" value="Sign Out">
+        </form>
+      <% end %>
+    </header>
+    <%= yield %>
+  </body>
+</html>
