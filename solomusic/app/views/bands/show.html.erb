@@ -1,0 +1,9 @@
+<h2> <%= @band.name %> </h2>
+<ul>
+  <% @band.albums do |album| %>
+    <li><a href=""> <%= album.title %> </a></li>
+  <% end %>
+</ul>
+
+<h3>LINKS</h3>
+<a href=" <%= new_band_url %> ">New band</a>

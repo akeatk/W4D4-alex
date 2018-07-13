@@ -1,8 +1,8 @@
 <% 
-  if action = :new
+  if action == :new
     method_txt = 'post'
     path_txt = users_url
-  elsif action = :login
+  elsif action == :login
     method_txt = 'post'
     path_txt = session_url
   end
@@ -21,7 +21,7 @@
   
   <label for="password">
     Password
-    <input type="text" name="user[password]" >
+    <input type="password" name="user[password]" >
   </label>
   
   <br>

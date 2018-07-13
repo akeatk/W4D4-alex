@@ -19,9 +19,8 @@ class UsersController < ApplicationController
   end
   
   def create
-    print "%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%"
     @user = User.new(user_params)
-    if @user.save!
+    if @user.save
       log_in_user!(@user)
       redirect_to users_url
     else

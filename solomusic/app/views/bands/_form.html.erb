@@ -1,0 +1,22 @@
+<% if action == :edit
+  url_txt = band_url(@band)
+  method_txt = 'patch' %>
+  <h2>EDIT <%= @band.name %> </h2>
+<% elsif action == :new
+  url_txt = bands_url
+  method_txt = 'post' %>
+  <h2>NEW BAND!</h2>
+<% end %>
+ 
+<form action=" <%= url_txt %> " method="post">
+  <input type="hidden" name="_method" value=" <%= method_txt %> ">
+  <input type="hidden" name="authenticity_token" value=" <%= form_authenticity_token %> ">
+  <label for="name">
+    <input id='name' type="text" name="band[name]">
+  </label>
+  
+  <br>
+  
+  <input type="submit" value="Submit">
+</form>
+ 
